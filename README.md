@@ -1,4 +1,4 @@
-<img src="./img/logo.png" width="500" style="display:block;margin-left:auto;margin-right:auto;">
+<div style="text-align:center"><img src="./img/logo.png" width="500"></div>
 
 There is no better feeling than being completely *immersed* in a good playlist. The key to creating an immersive playlist is having thoughtful flow between songs. Having bad flow between songs completely breaks the immersion and overall vibe that a playlist is trying to establish. For example, [*Good Vibrations*](https://open.spotify.com/track/5t9KYe0Fhd5cW6UYT4qP8f?si=LSOjru8ORumZs2pSc97nQA) by The Beach Boys and [*Triumph*](https://open.spotify.com/track/3glqlA5qY3bbo8UaUDGPnw?si=58Rixp_7T9a2ZwY_UEj7Zg) by Wu-Tang are both amazing songs, but by no means should they be played back to back—that would be musical whiplash. Therefore, the goal of this playlist sorter is to help you create playlists with better flow and structure. A live prototype can be viewed [here](http://onrepeat.xyz/playlist-sorter.html).
 
@@ -28,7 +28,8 @@ The `features` can then be used to sort the playlist into a variety of different
 
 
 ## Use Cases
-##### Party
+**Party**
 An example of a good time to use the playlist sorter would be when you're throwing a party. Obviously you don't want to play your most danceable songs as soon as the party start. You want to get everyone's hips gyrating when the party is peaking! After that, you want the music to slow back down—subtly telling your guests to *get out*. Therefore, a right skewed curve based on danceability would be the most fitting.
-##### Studying
+
+**Studying**
 The goal of any good studying playlist is to keep you concentrated. Going from a slow, calm song to a fast, aggressive song can definitely break that concentration. Therefore, a downward energy curve would be fitting—it'll slowly ease you into *the zone*.
