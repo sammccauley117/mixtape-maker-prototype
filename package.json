@@ -1,0 +1,33 @@
+{
+  "author": "Sam McCauley",
+  "name": "playlist-sorter",
+  "description": "Uses the Spotify API to sort user's playlists based on song audio features",
+  "version": "0.0.0",
+  "dependencies": {
+    "cookie-parser": "1.3.2",
+    "cors": "^2.8.4",
+    "express": "~4.16.0",
+    "querystring": "~0.2.0",
+    "request": "~2.83.0"
+  },
+  "main": "gulpfile.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sammccauley117/playlist-sorter.git"
+  },
+  "keywords": [
+    "Spotify",
+    "playlist",
+    "sorter",
+    "music"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sammccauley117/playlist-sorter/issues"
+  },
+  "homepage": "https://github.com/sammccauley117/playlist-sorter#readme"
+}

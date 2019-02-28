@@ -1,0 +1,67 @@
+#login {
+  text-decoration: none;
+  background-color: #1DB954;
+  color: #FAFAFA;
+  width: 275px;
+  height: 55px;
+  border-radius: 27.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+} #login:hover { cursor: pointer; }
+
+.playlist-list-item {
+  margin-bottom: 5px;
+}
+
+.playlist-list-item:hover {
+  background-color: lavender;
+  cursor: pointer;
+}
+
+button { margin-right: 5px; }
+
+#chart-container {
+  margin-top: 10px;
+  border: 1px solid #0003;
+  padding: 10px;
+  position: relative;
+  @media screen and (orientation:portrait) {
+    height: 47.5vw;
+    width: 95vw;
+  }
+  @media screen and (orientation:landscape) {
+    height: 50vh;
+    width: 100vh;
+  }
+  canvas {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+#options {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  div {
+    text-align: center;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #0003;
+    button {
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  #peak {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #create {
+    margin-left: 10px;
+  }
+}
