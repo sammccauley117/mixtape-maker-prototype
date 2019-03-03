@@ -12,11 +12,11 @@ var querystring  = require('querystring');
 var request = require('request');
 
 // Spotify API
-var CLIENT_ID = 'YOUR_SPOTIFY_CLIENT_ID';
-var CLIENT_SECRET = 'YOUR_SPOTIFY_CLIENT_SECRET';
-var REDIRECT_URI = 'YOUR_REDIRECT_URI';
-var URL = 'YOUR_URL';
+var CLIENT_ID = 'd7ae275d270b49e195a8646a76813578'; // Client ID
+var CLIENT_SECRET = '60e6bddad7294922ade42ac0c1dca865'; // Secret
 var STATE_KEY = 'spotify_auth_state';
+var REDIRECT_URI = 'http://192.168.1.8:3001/callback';
+var URL = 'http://192.168.1.8:3000';
 
 // Main Gulp task: initialize the backend Express REST API and auto-reloading Gulp server
 gulp.task('serve', ['sass'], function() {
