@@ -2,7 +2,8 @@ class Playlist {
   constructor(json) {
     this.name = json.name; // Name of the playlist
     this.id = json.id; // ID of the playlist
-    this.public = json.public;
+    this.public = json.public; // Whether or not the playlist is public
+    this.songCount = json.tracks.total; // Number of tracks in a playlist
     this.songs = []; // Array of songs in the playlist (unsorted)
     this.songsSorted = []; // Array of songs in the playlist (sorted)
     this.isLoaded = false; // Whether or not the playlist's songs
@@ -15,10 +16,10 @@ class Playlist {
 
   // Loads all songs and their features
   // Returns: Promise
-  load() {
+  load(iteration=0) {
     return new Promise((resolve, reject) => {
       // 1) Make request for playlist tracks
-      get(`playlists/${this.id}/tracks`).then(response => {
+      get(`playlists/${this.id}/tracks/?offset=${iteration*100}`).then(response => {
         // 2) Push valid songs to Object's song array (original order)
         response.items.forEach(song => {
           if (song.is_local === false) {
@@ -27,8 +28,22 @@ class Playlist {
         });
         // 3) Wait for all song features to be loaded
         Promise.all(this.songs.map(song => song.analyzed)).then(() => {
-          this.isLoaded = true;
-          resolve(response); // resolve(): loading was successful
+          // 4) Check to see if we have more songs to load
+          if ((iteration+1)*100 >= this.songCount) { // We've loaded enough songs, resolve
+            this.isLoaded = true;
+            resolve(response);
+          } else { // Need to load more
+            this.load(iteration+1) // Call load with a higher offset
+              .then(nextResponse => {
+                this.isLoaded = true;
+                resolve(response.items.push(nextResponse.items));
+              })
+              .catch(error => {
+                console.log('Error with large playlist song load');
+                reject(error);
+              });
+          }
+          // resolve(response); // resolve(): loading was successful
         }).catch(error => reject(error)); // reject(): error loading song features
       }).catch(error => reject(error)); // reject(): error loading playlist's songs
     });
@@ -152,7 +167,7 @@ class Playlist {
             text: `${this.name}`
           },
           tooltips: TOOLTIPS, // Bad practice, but the options config is whack so for now it's in config.js
-          scales: SCALES // Same bad practive
+          scales: SCALES // Same bad practice
         }
       });
     } else { // Update existing Chart.js
