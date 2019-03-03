@@ -4,21 +4,22 @@ class Song {
     this.id = json.id;
     this.uri = json.uri;
     this.features = {};
-    // Load features on creation
-    this.analyzed = new Promise((resolve, reject) => {
-      get(`audio-features/${this.id}`).then(response => {
-        this.features['acousticness'] = response.acousticness;
-        this.features['danceability'] = response.danceability;
-        this.features['energy'] = response.energy;
-        this.features['tempo'] = response.tempo;
-        this.features['mood'] = response.valence;
-        this.acousticness = response.acousticness;
-        this.danceability = response.danceability;
-        this.energy = response.energy;
-        this.tempo = response.tempo;
-        this.mood = response.valence;
-        resolve();
-      }).catch((error) => reject(error));
-    });
+    this.isLoaded = false;
+  }
+
+  addFeatures(features) {
+    if (features.id == this.id) {
+      this.features['acousticness'] = features.acousticness;
+      this.features['danceability'] = features.danceability;
+      this.features['energy'] = features.energy;
+      this.features['tempo'] = features.tempo;
+      this.features['mood'] = features.valence;
+      this.acousticness = features.acousticness;
+      this.danceability = features.danceability;
+      this.energy = features.energy;
+      this.tempo = features.tempo;
+      this.mood = features.valence;
+      this.isLoaded = true;
+    }
   }
 }

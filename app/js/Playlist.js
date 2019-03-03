@@ -20,31 +20,31 @@ class Playlist {
     return new Promise((resolve, reject) => {
       // 1) Make request for playlist tracks
       get(`playlists/${this.id}/tracks/?offset=${iteration*100}`).then(response => {
-        // 2) Push valid songs to Object's song array (original order)
-        response.items.forEach(song => {
-          if (song.is_local === false) {
-            this.songs.push(new Song(song.track));
-          }
-        });
-        // 3) Wait for all song features to be loaded
-        Promise.all(this.songs.map(song => song.analyzed)).then(() => {
-          // 4) Check to see if we have more songs to load
+        let newSongs = [];
+        response.items.forEach(song => newSongs.push(new Song(song.track)));
+
+        // 2) Get new song features and add them to playlist's song list
+        let ids = newSongs.map(song => song.id);
+        ids = ids.join('%2C'); // URL commas
+        get(`audio-features?ids=${ids}`).then(response => {
+          newSongs.forEach((song, i) => {
+            song.addFeatures(response.audio_features[i]);
+            this.songs.push(song);
+          });
+
+          // 3) Check to see if we have more songs to load
           if ((iteration+1)*100 >= this.songCount) { // We've loaded enough songs, resolve
             this.isLoaded = true;
-            resolve(response);
+            resolve(this.songs.slice());
           } else { // Need to load more
-            this.load(iteration+1) // Call load with a higher offset
-              .then(nextResponse => {
-                this.isLoaded = true;
-                resolve(response.items.push(nextResponse.items));
-              })
-              .catch(error => {
-                console.log('Error with large playlist song load');
-                reject(error);
-              });
+            this.load(iteration+1).then(response => {
+              resolve(response);
+            }).catch(error => {
+              console.log('Error with loading large playlist');
+              reject(error);
+            });
           }
-          // resolve(response); // resolve(): loading was successful
-        }).catch(error => reject(error)); // reject(): error loading song features
+        }).catch(error => reject(error)); // reject(): error getting song features
       }).catch(error => reject(error)); // reject(): error loading playlist's songs
     });
   }
