@@ -4,7 +4,7 @@
 
 
 
-There's no better feeling than being completely *immersed* in a good playlist. The key to creating an immersive playlist is having thoughtful flow between songs. Having bad flow between songs completely breaks the immersion and overall vibe that a playlist is trying to establish. For example, [*Good Vibrations*](https://open.spotify.com/track/5t9KYe0Fhd5cW6UYT4qP8f?si=LSOjru8ORumZs2pSc97nQA) by The Beach Boys and [*Triumph*](https://open.spotify.com/track/3glqlA5qY3bbo8UaUDGPnw?si=58Rixp_7T9a2ZwY_UEj7Zg) by Wu-Tang are both great songs, but by no means should they be played back to back—that would be musical whiplash. Therefore, the goal of this playlist sorter is to help you create playlists with better flow and structure. A live prototype can be viewed [here](http://onrepeat.xyz/playlist-sorter.html).
+There's no better feeling than being completely *immersed* in a good playlist. The key to creating an immersive playlist is having thoughtful flow between songs. Having bad flow between songs completely breaks the immersion and overall vibe that a playlist is trying to establish. For example, [*Good Vibrations*](https://open.spotify.com/track/5t9KYe0Fhd5cW6UYT4qP8f?si=LSOjru8ORumZs2pSc97nQA) by The Beach Boys and [*Triumph*](https://open.spotify.com/track/3glqlA5qY3bbo8UaUDGPnw?si=58Rixp_7T9a2ZwY_UEj7Zg) by Wu-Tang are both great songs, but by no means should they be played back to back—that would be musical whiplash. Therefore, the goal of this prototype playlist sorter is to help you create playlists with better flow and structure. A live version of the prototype can be viewed [here](http://onrepeat.xyz/playlist-sorter.html).
 
 
 
