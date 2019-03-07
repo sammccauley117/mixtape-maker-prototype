@@ -8,6 +8,11 @@ There's no better feeling than being completely *immersed* in a good playlist. T
 
 
 
+## Vol. I
+This is the first iteration of the playlist sorter—a barebones prototype for the real-deal. This version is incredibly ugly, but it's just a proof of concept. The next iteration will be a cleaner, more design-focused version built using React.js.
+
+
+
 ## How It Works
 Using the Spotify API, each song in a playlist is analyzed and broken up into a bunch of different `features`. The `features` we're going to look at are:
 
